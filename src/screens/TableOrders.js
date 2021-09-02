@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const TableOrders = ({ orders }) => {
   return (
-    <table class="table">
+    <table className="table">
       <thead>
         <tr>
           <th scope="col">Id</th>
@@ -14,8 +14,8 @@ export const TableOrders = ({ orders }) => {
         </tr>
       </thead>
       <tbody>
-        {orders.map((order) => (
-          <tr>
+        {orders.map((order, id) => (
+          <tr key={id}>
             <th scope="row">{order.id}</th>
             <td>{moment(order.tiempo).format("MMMM Do YYYY, h:mm:ss a")}</td>
             <td>
