@@ -56,18 +56,27 @@ export const EditProduct = () => {
   const handleEdit = async (e) => {
     e.preventDefault();
     if (title === "" || description === "" || precio === "") {
-      console.log("campos vacios conchatumare");
-      Swal.fire("Error", "Campos Vacíos, no seas imbecil", "error");
+      Swal.fire("Error", "Campos vacios", "error");
+
+      return;
+    }
+    if (imgUpload === "") {
+      Swal.fire("Error", "Ingrese una imagen para reemplazar", "error");
 
       return;
     }
     const db = firebase.firestore();
-    const fileUrl = await fileUpload(imgUpload);
+    let fileUrl = "";
+    console.log(imgUpload);
+    if (imgUpload !== undefined) {
+      fileUrl = await fileUpload(imgUpload);
+    }
+
     console.log(fileUrl);
     await db.doc(`products/${editProduct[0].id}`).update({
       ...formValues,
       tipo: document.querySelector("#exampleFormControlSelect2").value,
-      imagenUrl: fileUrl,
+      imagenUrl: fileUrl === "" ? editProduct[0].imagenUrl : fileUrl,
     });
     Swal.fire("Saved", "Pizza editada con exito", "success");
   };
@@ -139,6 +148,10 @@ export const EditProduct = () => {
                       </div>
                       <div className="form-group">
                         <p>Imagen Anterior</p>
+                        <p>
+                          Nota: Si no selecciona una nueva imagen se conservará
+                          la ultima subida
+                        </p>
                         <img
                           className="img-fluid my-1"
                           src={editProduct[0].imagenUrl}

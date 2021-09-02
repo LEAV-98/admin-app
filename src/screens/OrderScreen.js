@@ -58,7 +58,7 @@ export const OrderScreen = () => {
           console.log("SUCCESS!", response.status, response.text);
           Swal.fire({
             title: "Pedido Enviado",
-            text: "Enviand correo a " + email,
+            text: "Enviando correo a " + email,
             icon: "success",
             showConfirmButton: false,
             timer: 4000,

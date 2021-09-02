@@ -6,6 +6,8 @@ import { SideBar } from "./SideBar";
 import { OrderList } from "./OrderList";
 import { LoadingScreen } from "./LoadingScreen";
 import { TableOrders } from "./TableOrders";
+import TocIcon from "@material-ui/icons/Toc";
+import BorderAllIcon from "@material-ui/icons/BorderAll";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -55,13 +57,13 @@ export const OrdersScreen = () => {
                   className="btn btn-primary"
                   onClick={() => setButtonToogle(0)}
                 >
-                  Tabla
+                  <TocIcon />
                 </button>
                 <button
                   className="btn btn-primary"
                   onClick={() => setButtonToogle(1)}
                 >
-                  Cards
+                  <BorderAllIcon />
                 </button>
               </div>
               <div

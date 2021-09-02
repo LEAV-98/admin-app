@@ -55,7 +55,7 @@ export const MainListItems = () => {
           <ListItemIcon onClick={handleLogout}>
             <ExitToAppIcon />
           </ListItemIcon>
-          <ListItemText primary="Cerrar SesiĂłn" onClick={handleLogout} />
+          <ListItemText primary="Cerrar Sesión" onClick={handleLogout} />
         </ListItem>
       </div>
     </>

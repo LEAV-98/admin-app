@@ -64,12 +64,10 @@ export const PrincipalScreen = () => {
                 <div className="container">
                   <h2>Productos</h2>
                   <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
+                    Aquí podrá visualizar los productos que se ofrecen en la
+                    interfaz que el cliente visualizará.
                   </p>
-                  <Link to="/orders">Ir a Productos</Link>
+                  <Link to="/products">Ir a Productos</Link>
                 </div>
               </Paper>
             </Grid>
@@ -78,10 +76,8 @@ export const PrincipalScreen = () => {
                 <div className="container">
                   <h2>Ordenes</h2>
                   <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
+                    Aquí podrá visualizar las ordernes que los clientes en la
+                    aplicación principal realizarán.
                   </p>
                   <Link to="/orders">Ir a Ordenes</Link>
                 </div>
