@@ -20,33 +20,32 @@ export const MainListItems = () => {
     <>
       <div>
         <ListItem button>
-          <ListItemIcon>
-            <Link className="text-dark" to="/">
+          <Link className="text-dark" to="/">
+            <ListItemIcon>
               <DashboardIcon />
-            </Link>
-          </ListItemIcon>
-          {/* <ListItemText primary="Dashboard" /> */}
+            </ListItemIcon>
+          </Link>
           <Link className="text-dark" to="/">
             Dashboard
           </Link>
         </ListItem>
         <ListItem button>
-          <ListItemIcon>
-            <Link className="text-dark" to="/orders">
+          <Link className="text-dark" to="/orders">
+            <ListItemIcon>
               <ShoppingCartIcon />
-            </Link>
-          </ListItemIcon>
+            </ListItemIcon>
+          </Link>
           {/* <ListItemText primary="Ordenes" /> */}
           <Link className="text-dark" to="/orders">
             Ordenes
           </Link>
         </ListItem>
         <ListItem button>
-          <ListItemIcon>
-            <Link className="text-dark" to="/products">
+          <Link className="text-dark" to="/products">
+            <ListItemIcon>
               <LayersIcon />
-            </Link>
-          </ListItemIcon>
+            </ListItemIcon>
+          </Link>
           {/* <ListItemText primary="Productos" /> */}
           <Link className="text-dark" to="/products">
             Productos
@@ -56,7 +55,7 @@ export const MainListItems = () => {
           <ListItemIcon onClick={handleLogout}>
             <ExitToAppIcon />
           </ListItemIcon>
-          <ListItemText primary="Cerrar Sesión" onClick={handleLogout} />
+          <ListItemText primary="Cerrar SesiĂłn" onClick={handleLogout} />
         </ListItem>
       </div>
     </>

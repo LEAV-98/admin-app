@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { firebase } from "../firebase/firebase-config";
 import { SideBar } from "./SideBar";
 import Swal from "sweetalert2";
+import { ProductList } from "./ProductList";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -17,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 export const ProductsScreen = () => {
   const [products, setProducts] = useState([]);
+  const [toggleState, setToggleState] = useState(1);
+  const toggleTab = (index) => {
+    setToggleState(index);
+  };
   const cargarProductos = () => {
     firebase
       .firestore()
@@ -75,37 +80,68 @@ export const ProductsScreen = () => {
           <Link to="/add" className="btn btn-primary my-3">
             Agregar Producto
           </Link>
+          <div className="bloc-tabs">
+            <button
+              className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
+              onClick={() => toggleTab(1)}
+            >
+              Pizzas
+            </button>
+            <button
+              className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
+              onClick={() => toggleTab(2)}
+            >
+              Pastas
+            </button>
+            <button
+              className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
+              onClick={() => toggleTab(3)}
+            >
+              Combos
+            </button>
+          </div>
+          <div className="content-tabs">
+            <div
+              className={
+                toggleState === 1 ? "content  active-content" : "content"
+              }
+            >
+              <h2>Pizzas</h2>
+              <ProductList
+                products={products.filter(
+                  (product) => product.tipo === "Pizzas"
+                )}
+                handleDelete={handleDelete}
+              />
+            </div>
 
-          <div className="row">
-            {products.map((product, id) => (
-              <div className="card col-sm-6 col-md-4" key={id}>
-                <img
-                  className="card-img-top"
-                  src={product.imagenUrl}
-                  alt="img"
-                />
-                <div className="card-body">
-                  <h3 className="card-title">Nombre: {product.title}</h3>
-                  <p className="card-text">Precio: ${product.precio}</p>
-                  <p className="card-text">Tipo: {product.tipo}</p>
-                  <p>Descripción: {product.description}</p>
-                  <div className="btn-group " role="group">
-                    <Link
-                      className="btn btn-success"
-                      to={`/edit/${product.id}`}
-                    >
-                      Editar
-                    </Link>
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => handleDelete(product.id)}
-                    >
-                      Eliminar
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
+            <div
+              className={
+                toggleState === 2 ? "content  active-content" : "content"
+              }
+            >
+              <h2>Pastas</h2>
+              <ProductList
+                products={products.filter(
+                  (product) => product.tipo === "Pastas"
+                )}
+                handleDelete={handleDelete}
+              />
+            </div>
+
+            <div
+              className={
+                toggleState === 3 ? "content  active-content" : "content"
+              }
+            >
+              <h2>Combos</h2>
+              <ProductList
+                products={products.filter(
+                  (product) => product.tipo === "Combos"
+                )}
+                handleDelete={handleDelete}
+              />
+            </div>
           </div>
         </div>
       </main>
