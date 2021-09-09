@@ -93,6 +93,7 @@ export const SideBar = () => {
       <AppBar
         position="absolute"
         className={clsx(classes.appBar, open && classes.appBarShift)}
+        style={{ backgroundColor: "#222327" }}
       >
         <Toolbar className={classes.toolbar}>
           <IconButton
@@ -124,6 +125,7 @@ export const SideBar = () => {
           paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
         }}
         open={open}
+        style={{ backgroundColor: "black" }}
       >
         <div className={classes.toolbarIcon}>
           <IconButton onClick={handleDrawerClose}>

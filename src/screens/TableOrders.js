@@ -22,20 +22,17 @@ export const TableOrders = ({ orders }) => {
               <button
                 className={
                   order.estado === "Por Confirmar"
-                    ? "btn btn-danger "
+                    ? "btn btn-warning  "
                     : order.estado === "Enviado"
-                    ? "btn btn-warning"
-                    : "btn btn-primary"
+                    ? "btn btn-primary"
+                    : "btn btn-success"
                 }
               >
                 {order.estado}
               </button>
             </td>
             <td>
-              <Link
-                className="btn btn-success d-block"
-                to={`/orders/${order.id}`}
-              >
+              <Link className="btn btn-info " to={`/orders/${order.id}`}>
                 Ver Más
               </Link>
             </td>

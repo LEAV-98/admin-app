@@ -54,13 +54,13 @@ export const OrdersScreen = () => {
               <h1>Ordenes</h1>
               <div className="btn-group my-2">
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-info"
                   onClick={() => setButtonToogle(0)}
                 >
                   <TocIcon />
                 </button>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-info"
                   onClick={() => setButtonToogle(1)}
                 >
                   <BorderAllIcon />

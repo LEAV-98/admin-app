@@ -15,20 +15,19 @@ export const OrderItem = ({ order }) => {
         <button
           className={
             order.estado === "Por Confirmar"
-              ? "btn btn-danger "
+              ? "btn btn-warning "
               : order.estado === "Enviado"
               ? "btn btn-warning"
-              : "btn btn-primary"
+              : "btn btn-success"
           }
         >
           {order.estado}
         </button>
-        <Link
-          className="btn btn-success d-block mt-2"
-          to={`/orders/${order.id}`}
-        >
-          Ver Más
-        </Link>
+        <div>
+          <Link className="btn btn-info  mt-2" to={`/orders/${order.id}`}>
+            Ver Más
+          </Link>
+        </div>
       </div>
     </div>
   );

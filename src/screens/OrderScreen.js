@@ -111,7 +111,7 @@ export const OrderScreen = () => {
         <SideBar />
         <main className={classes.content}>
           <div className="container">
-            <Link to="/orders" className="btn btn-success my-2">
+            <Link to="/orders" className="btn btn-info my-2">
               Volver
             </Link>
             <div className="row">
@@ -121,8 +121,11 @@ export const OrderScreen = () => {
                   Pedido realizado el{" "}
                   {moment(order.tiempo).format("Do MMMM YYYY, h:mm:ss a")}
                 </p>{" "}
-                <p>Nombre del cliente: {order.nombre}</p>
-                <p>Precio total: S./{order.precioTotal}</p>
+                <p className="text-capitalize">
+                  Nombre del cliente: {order.nombre}
+                </p>{" "}
+                <p>Correo:{order.email}</p>
+                <p>Precio total: S./{order.precio}</p>
                 <p>Dirección: {order.direccion}</p>
                 <p>Referencia: {order.referencia}</p>
                 <p>Telefono de Contacto: {order.telefono}</p>
@@ -133,7 +136,7 @@ export const OrderScreen = () => {
                       ? "btn btn-danger "
                       : order.estado === "Enviado"
                       ? "btn btn-warning"
-                      : "btn btn-primary"
+                      : "btn btn-success"
                   }
                 >
                   {order.estado}
